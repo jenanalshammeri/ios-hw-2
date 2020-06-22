@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         let member = nametextfield.text!
         
         // قم بإضافة المتغير member إلى المصفوفة membernamearray هنا
-       
+        membernamearray.append(member)
          
               // النهايه----------------------
        
@@ -34,7 +34,16 @@ class ViewController: UIViewController {
     
 
     // اكتب الداله secretnametoletter هنا
+    func secretNameLetter(membernamearray :[String])-> String
+    {
+        var firstletter = " "
         
+        for i in 0..<membernamearray.count
+        {
+            firstletter += membernamearray[i].prefix(1)
+        }
+        return firstletter
+    }
   
         // النهايه----------------------
         
@@ -45,7 +54,7 @@ class ViewController: UIViewController {
         
     // قم باستدعاء الداله secretnametoletter داخل المتغير functioncall
         
-        var functioncall =
+        let functioncall = secretNameLetter(membernamearray: membernamearray)
                   
                    // النهايه----------------------
             
@@ -57,7 +66,26 @@ class ViewController: UIViewController {
     
     
        // اكتب الداله secretnametoEmoji  هنا
-           
+    func secretNameEmoji(membernameArray : [String])-> String {
+        var firstletters: [String] = []
+        var correspondingEmojis: [String:String] = ["A":"🦊", "B":"💎", "C":"🥐", "D":"🍇", "E":"⛓", "F":"💣", "G":"🔮", "H":"⚰️", "I":"🛠", "J":"🥰", "K":"🍒", "L":"😌", "M":"🔫", "N":"💸", "O":"❣️", "P":"💯", "Q":"🔅", "R":"⚾️", "S":"🍉", "T":"😂", "U":"⏱", "V":"🎱", "W":"🛹", "X":"📱", "Y":"📀", "Z":"🏹"]
+        
+        var emoji = correspondingEmojis["S"]
+        print(emoji)
+        
+        for i in 0..<membernameArray.count
+        {
+            var firstLetterFromMemberName = String(membernameArray[i].prefix(1))
+                var letterEmoji = correspondingEmojis[firstLetterFromMemberName]
+            firstletters.append(letterEmoji!)
+            
+        }
+        
+        print(firstletters.joined())
+        membernamearray.removeAll()
+        return firstletters.joined()
+        
+    }
            
         
            
@@ -72,7 +100,7 @@ class ViewController: UIViewController {
         
              // قم باستدعاء الداله secretnametoEmoji داخل المتغير functioncall
                 
-        var functioncall =
+        var functioncall = secretNameEmoji(membernameArray: membernamearray)
 
             // النهايه----------------------
      
@@ -84,4 +112,3 @@ class ViewController: UIViewController {
     
     
 }
-
